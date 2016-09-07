@@ -1,4 +1,5 @@
-angular.module('scavenger', ['ionic', '$stateProvider'])
+// angular.module('scavenger', ['ionic', '$stateProvider', '$urlRouterProvider', 'AppController'])
+angular.module('scavenger', ['ionic', 'ui.router'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,10 +18,22 @@ angular.module('scavenger', ['ionic', '$stateProvider'])
     }
   });
 }) // .run()
-.config(function($stateProvider) {
-  $stateProvider
-  .state('index', {
-    url: '/',
-    templateUrl: 'home.html'
-  })
+.config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        .state('login', {
+            url: '/login',
+            templateUrl: 'templates/login.html',
+            controller: 'AppController'
+        })
+        // .state('users', {
+        //     url: '/users',
+        //     templateUrl: 'templates/users.html',
+        //     controller: 'UserController'
+        // })
+        // .state('user', {
+        //     url: "/users/:userId",
+        //     templateUrl: "templates/user.html",
+        //     controller: "UserController"
+        // });
+    $urlRouterProvider.otherwise('/login');
 });
