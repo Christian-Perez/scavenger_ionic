@@ -1,1 +1,27 @@
 /* Empty. Add your own CSS if you like */
+.bar.bar-stable {
+    /*border-color: #b2b2b2;
+    background-color: #f8f8f8;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    color: #444;*/
+    text-align: center;
+}
+.card, .list-inset {
+    /*overflow: hidden;*/
+    margin: 10px 5px;
+    /*border-radius: 2px;
+    background-color: #fff;*/
+}
+.description{
+  /*background-color: rgb(199, 209, 255);*/
+}
+.time{
+
+}
+/*.objective{
+  margin-right: 15px;
+}*/
+
+.button.button.button-positive{
+  height: 10px;
+}

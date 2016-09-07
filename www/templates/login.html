@@ -1,1 +1,27 @@
-<h1>login page</h1>
+<ion-header-bar class="bar-positive">
+  <!-- <div class="bar bar-header"> -->
+  <button class="button button-stable icon ion-navicon"></button>
+  <h1 class="title">Header Buttons</h1>
+  <button class="button button-stable">Options</button>
+<!-- </div> -->
+</ion-header-bar>
+<ion-view view-title="My Page">
+  <ion-content>
+    <div class="card description">
+      Description
+    </div>
+
+    <div class="card time">
+      Time
+    </div>
+
+    <div class="list objective" ng-repeat="item in ['one', 'two', 'three']">
+      Objectives{{item}}
+      <label class="item item-input">Answer:
+        <input type="text">
+        <button class="" >submit</button>
+      </label>
+    </div>
+
+  </ion-content>
+</ion-view>
