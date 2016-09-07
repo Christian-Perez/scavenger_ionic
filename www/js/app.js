@@ -20,9 +20,9 @@ angular.module('scavenger', ['ionic', 'ui.router'])
 }) // .run()
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('hunt', {
-        url: '/hunt',
-        templateUrl: 'templates/hunt.html',
+    .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
         controller: 'AppController as appCtrl'
     })
     .state('home', {
@@ -30,6 +30,17 @@ angular.module('scavenger', ['ionic', 'ui.router'])
         templateUrl: 'templates/home.html',
         controller: 'AppController as appCtrl'
     })
-    $urlRouterProvider.otherwise('/hunt');
+    .state('hunt', {
+        url: '/hunt',
+        templateUrl: 'templates/hunt.html',
+        controller: 'AppController as appCtrl'
+    })
+    .state('huntsIndex', {
+        url: '/huntsindex',
+        templateUrl: 'templates/huntsIndex.html',
+        controller: 'AppController as appCtrl'
+    })
+
+    $urlRouterProvider.otherwise('/login');
   // $urlRouterProvider.otherwise('/hunt');
 });

@@ -1,6 +1,7 @@
 <ion-header-bar class="bar-positive">
   <!-- <div class="bar bar-header"> -->
-  <button class="button button-stable icon ion-navicon"></button>
+  <button ui-sref="home" class="button button-stable icon ion-arrow-left-c"></button>
+  <a ui-sref="home">Home</a>
   <h1 class="title">{{appCtrl.huntJSON.name}}</h1>
   <button class="button button-stable">Options</button>
 <!-- </div> -->
@@ -17,20 +18,22 @@
     </div>
 
     <div class="card objective" ng-repeat="objective in appCtrl.huntJSON.objectives">
-      Objective: {{objective.name}}
-      <br>
-      Details: {{objective.description}}
-      <br>
-      completed?: {{objective.completed}}
-      <label class="item item-input">Answer:
-        <input type="text">
-        <button class="" >submit</button>
-      </label>
-    </div>
+      <div class="item item-divider">
+        Objective: {{objective.name}}
+      </div>
+      <div class="item item-text-wrap">
+        Details: {{objective.description}}
+      </div>
+        <label class="item item-input">Answer:
+          <input ng-model="appCtrl.objective.answer" type="text">
+          <!-- <button class="" >submit</button> -->
 
-    <div class="card">
-      <a ui-sref="home">Home</a>
-    </div>
+          <button class="button">check</button>
+          answer: {{appCtrl.objective.answer}}
+        </label>
 
+
+    </div>
+    objectives: {{appCtrl.huntObjectives}}
   </ion-content>
 </ion-view>
