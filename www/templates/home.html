@@ -1,0 +1,22 @@
+<ion-header-bar class="bar-positive">
+  <!-- <div class="bar bar-header"> -->
+  <button class="button button-stable icon ion-navicon"></button>
+  <h1 class="title">Header Buttons</h1>
+  <button class="button button-stable">Options</button>
+<!-- </div> -->
+</ion-header-bar>
+<ion-view view-title="My Page">
+  <ion-content>
+    <div class="card description">
+      Description:
+      {{appCtrl.something}}
+    </div>
+
+    <div class="card">
+      <a ui-sref="hunt">hunt</a>
+      <br>
+      {{appCtrl.huntJSON.name}}
+    </div>
+
+  </ion-content>
+</ion-view>

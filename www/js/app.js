@@ -19,21 +19,17 @@ angular.module('scavenger', ['ionic', 'ui.router'])
   });
 }) // .run()
 .config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-        .state('login', {
-            url: '/login',
-            templateUrl: 'templates/login.html',
-            controller: 'AppController'
-        })
-        // .state('users', {
-        //     url: '/users',
-        //     templateUrl: 'templates/users.html',
-        //     controller: 'UserController'
-        // })
-        // .state('user', {
-        //     url: "/users/:userId",
-        //     templateUrl: "templates/user.html",
-        //     controller: "UserController"
-        // });
-    $urlRouterProvider.otherwise('/login');
+  $stateProvider
+    .state('hunt', {
+        url: '/hunt',
+        templateUrl: 'templates/hunt.html',
+        controller: 'AppController as appCtrl'
+    })
+    .state('home', {
+        url: '/home',
+        templateUrl: 'templates/home.html',
+        controller: 'AppController as appCtrl'
+    })
+    $urlRouterProvider.otherwise('/hunt');
+  // $urlRouterProvider.otherwise('/hunt');
 });

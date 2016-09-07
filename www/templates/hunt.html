@@ -1,26 +1,35 @@
 <ion-header-bar class="bar-positive">
   <!-- <div class="bar bar-header"> -->
   <button class="button button-stable icon ion-navicon"></button>
-  <h1 class="title">Header Buttons</h1>
+  <h1 class="title">{{appCtrl.huntJSON.name}}</h1>
   <button class="button button-stable">Options</button>
 <!-- </div> -->
 </ion-header-bar>
-<ion-view view-title="My Page">
+<ion-view view-title="hunt">
   <ion-content>
     <div class="card description">
-      Description
+      Description:
+      {{appCtrl.huntJSON.description}}
     </div>
 
     <div class="card time">
-      Time
+      Time: {{appCtrl.huntJSON.duration_min}}
     </div>
 
-    <div class="list objective" ng-repeat="item in ['one', 'two', 'three']">
-      Objectives{{item}}
+    <div class="card objective" ng-repeat="objective in appCtrl.huntJSON.objectives">
+      Objective: {{objective.name}}
+      <br>
+      Details: {{objective.description}}
+      <br>
+      completed?: {{objective.completed}}
       <label class="item item-input">Answer:
         <input type="text">
         <button class="" >submit</button>
       </label>
+    </div>
+
+    <div class="card">
+      <a ui-sref="home">Home</a>
     </div>
 
   </ion-content>
