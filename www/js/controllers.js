@@ -16,26 +16,27 @@ function AppController($http){
   self.huntJSON = {}
   // self.answerKey = []
     $http
-    .get('https://scavenger4.herokuapp.com/hunt_templates/' + '2') // return hunt_template json
+    .get('https://scavenger4.herokuapp.com/hunts/' + '1') // return hunt_template json
     .then(function(response){
       self.huntJSON = response.data
       // self.huntJSON.objective.userAnswer = 'a' // *** objective is in an array
+      // console.log('self.huntJSON.objectives', self.huntJSON.objectives)
+      console.log('self.huntJSON', self.huntJSON)
       for(var i = 0; i < self.huntJSON.objectives.length; i++){
         self.huntJSON.objectives[i].userAnswer = ""
-
       }
+      // console.log(self.huntJSON)
     })
 
   self.checkAnswer = function(userAnswer, objectiveAnswer, objectiveId){
     if(userAnswer.toUpperCase() == objectiveAnswer.toUpperCase()){
-      console.log('true')
-      console.log('objective.id: ', objectiveId)
       document.getElementById(objectiveId).className = 'completed'
       document.getElementById(objectiveId).innerHTML = 'completed'
-      // update
+      
+      // $http
+      //   .post()
       return true
     } else {
-      console.log('false')
       return false
     }
   } // checkAnswer()
