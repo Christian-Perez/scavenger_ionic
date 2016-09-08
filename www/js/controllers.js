@@ -6,6 +6,7 @@
 
 angular.module('scavenger')
   .controller('AppController', AppController)
+  .controller('HuntIndexController', HuntIndexController)
 
 AppController.$inject = ['$http'] // refactor huntFactory
 function AppController($http){
@@ -13,36 +14,34 @@ function AppController($http){
   // getHunt(2)
   // self.hunts = Hunt.hunts
   self.huntJSON = {}
-  self.answerKey = []
-  console.log('first: ', self.huntJSON)
-
-  // ** break out into factory **
+  // self.answerKey = []
     $http
     .get('https://scavenger4.herokuapp.com/hunt_templates/' + '2') // return hunt_template json
     .then(function(response){
       self.huntJSON = response.data
-      console.log('inside function: ', self.huntJSON.objectives[0].answer)
-      // return response.data
-      console.log('length: ', self.huntJSON.objectives.length)
+      // self.huntJSON.objective.userAnswer = 'a' // *** objective is in an array
       for(var i = 0; i < self.huntJSON.objectives.length; i++){
-        self.answerKey.push(self.huntJSON.objectives[i].answer)
+        self.huntJSON.objectives[i].userAnswer = ""
+
       }
-      console.log('answer key: ', self.answerKey)
     })
 
-  // getHunt()
-  // console.log('response: ', getHunt(1))
-  // console.log('after', self.huntJSON)
-
-  // compare each inidivual answer to it's answerKey & do something if true/false
-  // self.checkAnswer = checkAnswer
-  // function checkAnswer(userAnswer, objectiveAnswer){
-  //   if(userAnswer == objectiveAnswer){
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }
-
+  self.checkAnswer = function(userAnswer, objectiveAnswer, objectiveId){
+    if(userAnswer.toUpperCase() == objectiveAnswer.toUpperCase()){
+      console.log('true')
+      console.log('objective.id: ', objectiveId)
+      document.getElementById(objectiveId).className = 'completed'
+      document.getElementById(objectiveId).innerHTML = 'completed'
+      // update
+      return true
+    } else {
+      console.log('false')
+      return false
+    }
+  } // checkAnswer()
 } // appController
-  // console.log('last ', self.huntJSON)
+
+HuntIndexController.$inject = ['$http']
+function HuntIndexController($http){
+
+}

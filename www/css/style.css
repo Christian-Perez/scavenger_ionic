@@ -18,6 +18,10 @@
 .time{
 
 }
+.completed{
+  color: rgb(150, 150, 150);
+  background-color: rgb(250, 250, 250);
+}
 /*.objective{
   margin-right: 15px;
 }*/

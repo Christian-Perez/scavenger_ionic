@@ -16,24 +16,19 @@
     <div class="card time">
       Time: {{appCtrl.huntJSON.duration_min}}
     </div>
-
-    <div class="card objective" ng-repeat="objective in appCtrl.huntJSON.objectives">
-      <div class="item item-divider">
-        Objective: {{objective.name}}
+    <div ng-repeat="objective in appCtrl.huntJSON.objectives">
+      <div class="card objective">
+        <div class="item item-divider"  id="{{objective.id}}">
+          Objective: {{objective.name}}
+        </div>
+        <div class="item item-text-wrap">
+          Details: {{objective.description}}
+        </div>
+          <label class="item item-input">Answer:
+            <input type="text" ng-model="objective.userAnswer">
+          </label>
+          <button ng-click="appCtrl.checkAnswer(objective.userAnswer, objective.answer, {{objective.id}})" class="button button-bar button-positive">Check Answer</button>
       </div>
-      <div class="item item-text-wrap">
-        Details: {{objective.description}}
-      </div>
-        <label class="item item-input">Answer:
-          <input ng-model="appCtrl.objective.answer" type="text">
-          <!-- <button class="" >submit</button> -->
-
-          <button class="button">check</button>
-          answer: {{appCtrl.objective.answer}}
-        </label>
-
-
     </div>
-    objectives: {{appCtrl.huntObjectives}}
   </ion-content>
 </ion-view>
